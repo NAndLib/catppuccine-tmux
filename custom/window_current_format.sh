@@ -10,9 +10,9 @@ show_window_current_format() {
   if [[ "$key_table" = "off" ]]; then
     local window_status_icon_enable="$(get_tmux_option "@catppuccin_window_status_icon_enable" "yes")"
     if [[ "$window_status_icon_enable" = "yes" ]]; then
-      text="$text 󰌾 "
+      text="󰌾 $text"
     else
-      text="$text [LOCKED]"
+      text="[LOCKED] $text"
     fi
   fi
 
