@@ -1,25 +1,42 @@
 ---
 whiskers:
-  version: "2.1.1"
+  version: "^2.5.1"
   matrix:
     - flavor
-  filename: "themes/catppuccin_{{flavor.identifier}}.tmuxtheme"
+  filename: "themes/catppuccin_{{flavor.identifier}}_tmux.conf"
+  hex_format: "#{{r}}{{g}}{{b}}{{z}}"
 ---
-{%- set palette = flavor.colors -%}
-# NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
-# WARNING: hex colors can't contain capital letters
+# vim:set ft=tmux:
 
 # --> Catppuccin ({{ flavor.identifier | capitalize }})
-thm_bg="#{{ palette.base.hex | lower }}"
-thm_fg="#{{ palette.text.hex | lower }}"
-thm_cyan="#{{ palette.sky.hex| lower }}"
-thm_black="#{{ palette.mantle.hex | lower }}"
-thm_gray="#{{ palette.surface0.hex | lower }}"
-thm_magenta="#{{ palette.mauve.hex | lower }}"
-thm_pink="#{{ palette.pink.hex | lower }}"
-thm_red="#{{ palette.red.hex | lower }}"
-thm_green="#{{ palette.green.hex | lower }}"
-thm_yellow="#{{ palette.yellow.hex | lower }}"
-thm_blue="#{{ palette.blue.hex | lower }}"
-thm_orange="#{{ palette.peach.hex | lower }}"
-thm_black4="#{{ palette.surface2.hex | lower }}"
+set -ogq @thm_bg "{{ base.hex }}"
+set -ogq @thm_fg "{{ text.hex }}"
+
+# Colors
+set -ogq @thm_rosewater "{{ rosewater.hex }}"
+set -ogq @thm_flamingo "{{ flamingo.hex }}"
+set -ogq @thm_pink "{{ pink.hex }}"
+set -ogq @thm_mauve "{{ mauve.hex }}"
+set -ogq @thm_red "{{ red.hex }}"
+set -ogq @thm_maroon "{{ maroon.hex }}"
+set -ogq @thm_peach "{{ peach.hex }}"
+set -ogq @thm_yellow "{{ yellow.hex }}"
+set -ogq @thm_green "{{ green.hex }}"
+set -ogq @thm_teal "{{ teal.hex }}"
+set -ogq @thm_sky "{{ sky.hex }}"
+set -ogq @thm_sapphire "{{ sapphire.hex }}"
+set -ogq @thm_blue "{{ blue.hex }}"
+set -ogq @thm_lavender "{{ lavender.hex }}"
+
+# Surfaces and overlays
+set -ogq @thm_subtext_1 "{{ subtext0.hex }}"
+set -ogq @thm_subtext_0 "{{ subtext1.hex }}"
+set -ogq @thm_overlay_2 "{{ overlay2.hex }}"
+set -ogq @thm_overlay_1 "{{ overlay1.hex }}"
+set -ogq @thm_overlay_0 "{{ overlay0.hex }}"
+set -ogq @thm_surface_2 "{{ surface2.hex }}"
+set -ogq @thm_surface_1 "{{ surface1.hex }}"
+set -ogq @thm_surface_0 "{{ surface0.hex }}"
+set -ogq @thm_mantle "{{ mantle.hex }}"
+set -ogq @thm_crust "{{ crust.hex }}"
+
